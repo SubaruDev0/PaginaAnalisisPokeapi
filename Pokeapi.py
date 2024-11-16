@@ -213,15 +213,40 @@ def main():
             plt.grid(axis='y', linestyle='--', alpha=0.7)
             st.pyplot(plt)
 
-            # Procesar los tipos de Pokemon para el gráfico de distribución por tipo
+            # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
             tipos = df['Tipos'].explode().value_counts()
 
-            # Asegurarnos de que los valores sean enteros 
+            # Asegurarnos de que los valores sean enteros
             tipos = tipos.astype(int)
+
+            # Diccionario de colores para cada tipo de Pokémon
+            tipo_colores = {
+                'Normal': '#A8A878',
+                'Fire': '#F08030',
+                'Water': '#6890F0',
+                'Electric': '#F8D030',
+                'Grass': '#78C850',
+                'Ice': '#98D8D8',
+                'Fighting': '#C03028',
+                'Poison': '#A040A0',
+                'Ground': '#E0C068',
+                'Flying': '#A890F0',
+                'Psychic': '#F85888',
+                'Bug': '#A8B820',
+                'Rock': '#B8A038',
+                'Ghost': '#705898',
+                'Dragon': '#7038F8',
+                'Dark': '#705848',
+                'Steel': '#B8B8D0',
+                'Fairy': '#EE99AC'
+            }
+
+            # Obtener los colores para cada tipo en el orden de los datos
+            colores = [tipo_colores[tipo] for tipo in tipos.index]
 
             # Crear el gráfico
             plt.figure(figsize=(10, 6))
-            plt.bar(tipos.index, tipos.values, color='orange', edgecolor='black')
+            plt.bar(tipos.index, tipos.values, color=colores, edgecolor='black')
             plt.title("Distribución de Pokémon por Tipo", fontsize=16, fontweight='bold')
             plt.xlabel("Tipo", fontsize=12)
             plt.ylabel("Número de Pokémon", fontsize=12)
