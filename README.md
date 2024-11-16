@@ -1,5 +1,8 @@
 # 📊 **Pokémon Stats Viewer** 🎮
 
+### 🌐 **Prueba la aplicación en línea aquí** 🔗
+**[https://pokeapi-subarudev.streamlit.app](https://pokeapi-subarudev.streamlit.app)**
+
 ¡Bienvenido al proyecto de **Pokémon Stats Viewer**! Este proyecto permite consultar información detallada sobre tus Pokémon favoritos, como estadísticas, tipos, generación, altura, peso y mucho más, todo de manera interactiva a través de una interfaz web creada con **Streamlit**.
 
 ---
@@ -56,10 +59,10 @@ Todo esto se muestra dinámicamente gracias a **Streamlit**, una herramienta inc
 
 ## 🎨 **Capturas de Pantalla**
 
-¡Aquí te mostramos cómo luce la aplicación!
-
-AUN NO JEJE
+Aún no disponibles.
 
 ---
 
+## 📝 **Licencia**
 
+Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más detalles.
