@@ -4,6 +4,12 @@ import pokebase as pb
 import matplotlib.pyplot as plt
 import pandas as pd
 
+"""
+Prueba la aplicación en línea aquí
+https://pokeapi-subarudev.streamlit.app
+
+"""
+
 # Funcion que devuelve una lista de los nombres de los Pokemon para el 
 def obtener_pokemon():
     return [
