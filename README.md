@@ -58,11 +58,7 @@ Todo esto se muestra dinámicamente gracias a **Streamlit**, una herramienta inc
 
 ¡Aquí te mostramos cómo luce la aplicación!
 
-![Captura1](assets/screenshot1.png)  
-*Selecciona tus Pokémon para ver sus estadísticas.*
-
-![Captura2](assets/screenshot2.png)  
-*Gráficos visuales para una mejor experiencia.*
+AUN NO JEJE
 
 ---
 
