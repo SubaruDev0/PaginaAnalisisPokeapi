@@ -214,7 +214,7 @@ def main():
             st.pyplot(plt)
 
             # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
-            tipos = df['Tipos'].explode().value_counts()
+            tipos = df['Tipos'].explode().value_counts()  # Explota y cuenta los tipos
 
             # Asegurarnos de que los valores sean enteros
             tipos = tipos.astype(int)
@@ -241,8 +241,9 @@ def main():
                 'Fairy': '#EE99AC'
             }
 
-            # Obtener los colores para cada tipo en el orden de los datos
-            colores = [tipo_colores[tipo] for tipo in tipos.index]
+            # Verificar que todos los tipos en los datos tengan un color asignado
+            # Si alguno no tiene un color asignado en el diccionario, lo pondremos en gris
+            colores = [tipo_colores.get(tipo, '#808080') for tipo in tipos.index]
 
             # Crear el gráfico
             plt.figure(figsize=(10, 6))
