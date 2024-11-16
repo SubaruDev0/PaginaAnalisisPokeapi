@@ -87,7 +87,7 @@ def obtener_pokemon():
         "regieleki", "regidrago", "zarude", "cufant", "copperajah", "rolycoly", "carkol", "coalossal", "toxtricity",
         "dragapult", "dreepy", "dracovish", "arctovish", "dracozolt", "arctozolt", "galarian ponyta",
         "galarian rapidash", "galarian weezing", "galarian farfetchd", "galarian zigzagoon", "galarian linoone",
-        "galarian moltres", "galarian zapdos", "galarian articuno",
+        "galarian moltres", "galarian-zapdos", "galarian articuno",
         #Novena
         "sprigatito", "floragato", "meowscarada", "fuecoco", "crocalor", "skeledirge", "quaxly", "quaxwell",
         "quaquaval", "lechonk", "oinkologne", "tarountula", "spidops", "nymble", "lokix", "fidough", "doughnot",
