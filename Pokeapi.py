@@ -189,10 +189,10 @@ def main():
             st.subheader("Datos de los Pokémon")
             st.dataframe(df)
 
-            # Gráfico de barras para mostrar la altura de los Pokemon seleccionados
+            # Título del gráfico de altura fuera del gráfico
+            st.subheader("Altura de los Pokémon")
             plt.figure(figsize=(10, 6))
             plt.bar(df['Nombre'], df['Altura (m)'], color='skyblue', edgecolor='black')
-            plt.title("Altura de los Pokémon", fontsize=16, fontweight='bold')
             plt.xlabel("Pokémon", fontsize=12)
             plt.ylabel("Altura (m)", fontsize=12)
             plt.xticks(rotation=45, fontsize=10)  # Rotar los nombres de los Pokemon para mejor visibilidad
@@ -200,10 +200,10 @@ def main():
             plt.grid(axis='y', linestyle='--', alpha=0.7)  # Añadir una cuadrícula horizontal
             st.pyplot(plt)
 
-            # Gráfico de barras para mostrar el peso de los Pokemon seleccionados
+            # Título del gráfico de peso fuera del gráfico
+            st.subheader("Peso de los Pokémon")
             plt.figure(figsize=(10, 6))
             plt.bar(df['Nombre'], df['Peso (kg)'], color='salmon', edgecolor='black')
-            plt.title("Peso de los Pokémon", fontsize=16, fontweight='bold')
             plt.xlabel("Pokémon", fontsize=12)
             plt.ylabel("Peso (kg)", fontsize=12)
             plt.xticks(rotation=45, fontsize=10)
@@ -217,16 +217,12 @@ def main():
             # Colores para cada generación
             colores_generaciones = ['#ff9999','#66b3ff','#99ff99','#ffcc99','#c2c2f0','#ffb3e6','#ff6666','#ffccff']
 
-            # Crear el gráfico de torta
+            # Título del gráfico de distribución por generación fuera del gráfico
+            st.subheader("Distribución de Pokémon por Generación")
             plt.figure(figsize=(8, 8))
             plt.pie(contador_por_generacion.values, labels=contador_por_generacion.index, colors=colores_generaciones, 
                     autopct='%1.1f%%', startangle=140, wedgeprops={'edgecolor': 'black', 'linewidth': 1, 'linestyle': 'solid'})
-
-            # Título y decoración
-            plt.title("Distribución de Pokémon por Generación", fontsize=16, fontweight='bold')
             plt.axis('equal')  # Para que el gráfico se vea como un círculo perfecto
-
-            # Mostrar el gráfico en Streamlit
             st.pyplot(plt)
 
             # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
@@ -261,18 +257,15 @@ def main():
             # Si alguno no tiene un color asignado en el diccionario, lo pondremos en gris
             colores = [tipo_colores.get(tipo, '#808080') for tipo in tipos.index]
 
-            # Crear el gráfico
+            # Título del gráfico de distribución por tipo fuera del gráfico
+            st.subheader("Distribución de Pokémon por Tipo")
             plt.figure(figsize=(10, 6))
             plt.bar(tipos.index, tipos.values, color=colores, edgecolor='black')
-            plt.title("Distribución de Pokémon por Tipo", fontsize=16, fontweight='bold')
             plt.xlabel("Tipo", fontsize=12)
             plt.ylabel("Número de Pokémon", fontsize=12)
             plt.xticks(rotation=45, fontsize=10)
             plt.yticks(fontsize=10)
-
-            # Establecer el eje Y como solo enteros
             plt.gca().yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-
             plt.grid(axis='y', linestyle='--', alpha=0.7)
             st.pyplot(plt)
 
