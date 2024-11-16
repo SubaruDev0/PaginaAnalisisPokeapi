@@ -62,5 +62,4 @@ AUN NO JEJE
 
 ---
 
-## 📄 **Estructura del Proyecto**
 
