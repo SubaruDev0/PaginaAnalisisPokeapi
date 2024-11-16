@@ -166,6 +166,22 @@ def main():
             # Crear un DataFrame de pandas con la información de los Pokemon
             df = pd.DataFrame(info)
 
+            # Mapeo de generaciones para mostrarlo con formato amigable
+            generacion_map = {
+                'generation-i': '1° Generación',
+                'generation-ii': '2° Generación',
+                'generation-iii': '3° Generación',
+                'generation-iv': '4° Generación',
+                'generation-v': '5° Generación',
+                'generation-vi': '6° Generación',
+                'generation-vii': '7° Generación',
+                'generation-viii': '8° Generación',
+                'generation-ix': '9° Generación'
+            }
+
+            # Reemplazar las generaciones en el DataFrame
+            df['Generación'] = df['Generación'].map(generacion_map)
+
             # Establecer el "Número de Pokedex" como índice en el DataFrame
             df.set_index('Número de Pokedex', inplace=True)
 
@@ -194,20 +210,6 @@ def main():
             plt.yticks(fontsize=10)
             plt.grid(axis='y', linestyle='--', alpha=0.7)
             st.pyplot(plt)
-
-            generacion_map = {
-                'generation-i': '1° Generación',
-                'generation-ii': '2° Generación',
-                'generation-iii': '3° Generación',
-                'generation-iv': '4° Generación',
-                'generation-v': '5° Generación',
-                'generation-vi': '6° Generación',
-                'generation-vii': '7° Generación',
-                'generation-viii': '8° Generación'
-            }
-
-            # Reemplazar las generaciones en el DataFrame
-            df['Generación'] = df['Generación'].map(generacion_map)
 
             # Contar la cantidad de Pokémon por generación
             contador_por_generacion = df['Generación'].value_counts()
