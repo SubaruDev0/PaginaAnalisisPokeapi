@@ -195,22 +195,36 @@ def main():
             plt.grid(axis='y', linestyle='--', alpha=0.7)
             st.pyplot(plt)
 
-            # Gráfico de barras para mostrar la distribución por generaciones
+            generacion_map = {
+                'generation-i': '1° Generación',
+                'generation-ii': '2° Generación',
+                'generation-iii': '3° Generación',
+                'generation-iv': '4° Generación',
+                'generation-v': '5° Generación',
+                'generation-vi': '6° Generación',
+                'generation-vii': '7° Generación',
+                'generation-viii': '8° Generación'
+            }
+
+            # Reemplazar las generaciones en el DataFrame
+            df['Generación'] = df['Generación'].map(generacion_map)
+
+            # Contar la cantidad de Pokémon por generación
             contador_por_generacion = df['Generación'].value_counts()
 
-            # Crear el gráfico
-            plt.figure(figsize=(10, 6))
-            plt.bar(contador_por_generacion.index, contador_por_generacion.values, color='lightgreen', edgecolor='black')
+            # Colores para cada generación
+            colores_generaciones = ['#ff9999','#66b3ff','#99ff99','#ffcc99','#c2c2f0','#ffb3e6','#ff6666','#ffccff']
+
+            # Crear el gráfico de torta
+            plt.figure(figsize=(8, 8))
+            plt.pie(contador_por_generacion.values, labels=contador_por_generacion.index, colors=colores_generaciones, 
+                    autopct='%1.1f%%', startangle=140, wedgeprops={'edgecolor': 'black', 'linewidth': 1, 'linestyle': 'solid'})
+
+            # Título y decoración
             plt.title("Distribución de Pokémon por Generación", fontsize=16, fontweight='bold')
-            plt.xlabel("Generación", fontsize=12)
-            plt.ylabel("Número de Pokémon", fontsize=12)
-            plt.xticks(rotation=45, fontsize=10)
-            plt.yticks(fontsize=10)
+            plt.axis('equal')  # Para que el gráfico se vea como un círculo perfecto
 
-            # Asegurarse de que el eje Y solo tenga enteros
-            plt.gca().yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-
-            plt.grid(axis='y', linestyle='--', alpha=0.7)
+            # Mostrar el gráfico en Streamlit
             st.pyplot(plt)
 
             # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
