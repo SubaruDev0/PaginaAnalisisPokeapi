@@ -27,7 +27,7 @@ def obtener_pokemon():
         "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr-mime", "scyther", "jynx",
         "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon",
         "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "mewtwo", "mew",
-        "articuno", "zapdos", "moltres",
+        "articuno", "zapdos", "moltres",    
         #Segunda
         "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr",
         "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "chinchou", "lanturn",
@@ -77,7 +77,7 @@ def obtener_pokemon():
         "crabominable", "oricorio", "cutiefly", "ribombee", "rockruff", "lycanroc", "wishiwashi", "mareanie", "toxapex",
         "mudbray", "mudsdale", "dewpider", "araquanid", "mimikyu", "sandygast", "palossand", "stufful", "bewear",
         "bounsweet", "steenee", "tsareena", "comfey", "solgaleo", "lunala", "necrozma", "magearna", "marshadow",
-        "zeraora", "poipole", "nihilego", "blacephalon", "stakataka", "kartana", "type: null", "silicobra", "sandaconda",
+        "zeraora", "poipole", "nihilego", "blacephalon", "stakataka", "kartana", "silicobra", "sandaconda",
         # Octava
         "grookey", "thwackey", "rillaboom", "scorbunny", "raboot", "cinderace", "sobble", "drizzile", "inteleon",
         "skwovet", "greedent", "rookidee", "corvisquire", "corviknight", "blipbug", "dottler", "orbeetle", "nickit",
