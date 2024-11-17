@@ -105,7 +105,7 @@ def obtener_pokemon():
             #Septima generacion
             "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina", "pikipek",
             "trumbeak", "toucannon", "yungoos", "gumshoos", "grubbin", "charjabug", "vikavolt", "crabrawler", "crabominable",
-            "cutiefly", "ribombee", "rockruff", "wishiwashi", "mareanie", "toxapex", "mudbray",
+            "cutiefly", "ribombee", "rockruff", "mareanie", "toxapex", "mudbray",
             "mudsdale", "dewpider", "araquanid", "fomantis", "lurantis", "morelull", "shiinotic", "salandit", "salazzle",
             "stufful", "bewear", "bounsweet", "steenee", "tsareena", "comfey", "oranguru", "passimian", "wimpod", "golisopod",
             "sandygast", "palossand", "pyukumuku", "type-null", "silvally", "komala", "turtonator", "togedemaru",
@@ -127,7 +127,7 @@ def obtener_pokemon():
             #Novena generacion
             "sprigatito", "floragato", "meowscarada", "fuecoco", "crocalor", "skeledirge", "quaxly", "quaxwell", "quaquaval",
             "lechonk", "tarountula", "spidops", "nymble", "lokix", "rellor", "rabsca", "greavard", "houndstone",
-            "flittle", "espathra", "farigiraf", "kingambit", "grimsnarl", 
+            "flittle", "espathra", "farigiraf", "kingambit",
             "nacli", "naclstack", "garganacl", "gimmighoul", "gholdengo", "great-tusk", "scream-tail",
             "brute-bonnet", "flutter-mane", "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle", "iron-hands",
             "iron-jugulis", "iron-moth", "iron-thorns", "frigibax", "arctibax", "baxcalibur", "tandemaus",
