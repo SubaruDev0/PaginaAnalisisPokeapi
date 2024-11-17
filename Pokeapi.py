@@ -147,7 +147,7 @@ def obtener_info_pokemon(pokemones):
     for nombre in pokemones:
         try:
             # Realizar una solicitud para obtener los datos del Pokemon
-            url = f"https://pokeapi.co/api/v2/pokemon/{nombre}/"
+            url = f"https://pokeapi.co/api/v2/pokemon-species/{nombre}/"
             respuesta = requests.get(url)
 
             # Extraer la respuesta en formato JSON
