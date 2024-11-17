@@ -191,26 +191,18 @@ def obtener_info_pokemon(pokemones):
 def main():
     st.title("Información de Pokémon")  # Título
 
-    # Cargar la lista predefinida
+    # Cargar la lista predefinida 
     lista_pokemon = obtener_pokemon()
 
-    # Crear el multiselect con estado inicial
-    if "pokemon_seleccionados" not in st.session_state:
-        st.session_state.pokemon_seleccionados = []
-
-    # Multiselect con valores dinámicos desde session_state
-    input_pokemon = st.multiselect(
-        "Selecciona los Pokémon para ver su información:",
-        lista_pokemon,
-        default=st.session_state.pokemon_seleccionados,
-        key="pokemon_seleccionados"
-    )
+    # Variable para almacenar Pokémon seleccionados
+    input_pokemon = st.multiselect("Selecciona los Pokémon para ver su información:", lista_pokemon)
 
     # Botón para generar 10 Pokémon aleatorios
     if st.button("Seleccionar 10 Pokémon al azar"):
         seleccion_aleatoria = random.sample(lista_pokemon, min(10, len(lista_pokemon)))  # Selecciona máximo 10 Pokémon
-        st.session_state.pokemon_seleccionados = list(set(input_pokemon + seleccion_aleatoria))  # Agregar al estado sin duplicados
-        st.experimental_rerun()  # Reinicia la app para reflejar los cambios en el multiselect
+        input_pokemon.extend(seleccion_aleatoria)  # Agregar la selección aleatoria
+        input_pokemon = list(set(input_pokemon))  # Eliminar duplicados
+        st.experimental_set_query_params(pokemon=",".join(input_pokemon))  # Mantener persistencia
 
     # Procesar la entrada de Pokémon seleccionados
     if input_pokemon:
