@@ -91,7 +91,7 @@ def obtener_pokemon():
             "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo",
             "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary",
             "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona",
-            "cobalion", "terrakion", "virizion", "tornadus", "reshiram", "zekrom", "kyurem",
+            "cobalion", "terrakion", "virizion", "reshiram", "zekrom", "kyurem",
             "genesect", #meloetta
             #Sexta generacion
             "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja",
@@ -101,7 +101,7 @@ def obtener_pokemon():
             "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk",
             "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo",
             "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "bergmite", "avalugg", "noibat", "noivern",
-            "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "volcanion",
+            "xerneas", "yveltal", "diancie", "hoopa", "volcanion",
             #Septima generacion
             "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina", "pikipek",
             "trumbeak", "toucannon", "yungoos", "gumshoos", "grubbin", "charjabug", "vikavolt", "crabrawler", "crabominable",
@@ -126,14 +126,14 @@ def obtener_pokemon():
             "zarude", "regieleki", "regidrago", "glastrier", "spectrier", "calyrex",
             #Novena generacion
             "sprigatito", "floragato", "meowscarada", "fuecoco", "crocalor", "skeledirge", "quaxly", "quaxwell", "quaquaval",
-            "lechonk", "oinkologne", "tarountula", "spidops", "nymble", "lokix", "rellor", "rabsca", "greavard", "houndstone",
+            "lechonk", "tarountula", "spidops", "nymble", "lokix", "rellor", "rabsca", "greavard", "houndstone",
             "flittle", "espathra", "farigiraf", "kingambit", "grimsnarl", 
-            "squawkabilly", "nacli", "naclstack", "garganacl", "gimmighoul", "gholdengo", "great-tusk", "scream-tail",
+            "nacli", "naclstack", "garganacl", "gimmighoul", "gholdengo", "great-tusk", "scream-tail",
             "brute-bonnet", "flutter-mane", "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle", "iron-hands",
             "iron-jugulis", "iron-moth", "iron-thorns", "frigibax", "arctibax", "baxcalibur", "tandemaus", "maushold",
             "fidough", "dachsbun", "smoliv", "dolliv", "arboliva", "pawmi", "pawmo", "pawmot", "mabosstiff",
             "shroodle", "grafaiai", "capsakid", "scovillain", "tadbulb", "bellibolt", "wattrel", "kilowattrel", "bramblin",
-            "brambleghast", "toedscool", "toedscruel", "klawf", "cetoddle", "cetitan", "veluza", "dondozo", "tatsugiri",
+            "brambleghast", "toedscool", "toedscruel", "klawf", "cetoddle", "cetitan", "veluza", "dondozo",
             "annihilape", "clodsire", "tinkatink", "tinkatuff", "tinkaton", "wiglett", "wugtrio", "bombirdier", "finizen",
             "palafin", "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora",
 ] 
@@ -181,7 +181,7 @@ def obtener_info_pokemon(pokemones):
                 'Tipos': tipos  # Tipos de Pokemon (agua, fuego, etc.)
             })
         except requests.exceptions.RequestException as e:
-            st.warning(f"No se pudo obtener información de {nombre}. Error de red: {e}")
+            st.warning(f"{nombre} No se encuentra actualmente en la PokeApi. Error de red: {e}")
         except KeyError as e:
             st.warning(f"Error al procesar los datos de {nombre}. Información incompleta. Error: {e}")
 
