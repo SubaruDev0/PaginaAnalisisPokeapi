@@ -109,7 +109,7 @@ def obtener_pokemon():
             "mudsdale", "dewpider", "araquanid", "fomantis", "lurantis", "morelull", "shiinotic", "salandit", "salazzle",
             "stufful", "bewear", "bounsweet", "steenee", "tsareena", "comfey", "oranguru", "passimian", "wimpod", "golisopod",
             "sandygast", "palossand", "pyukumuku", "type-null", "silvally", "komala", "turtonator", "togedemaru",
-            "mimikyu", "bruxish", "drampa", "dhelmise", "jangmo-o", "hakamo-o", "kommo-o", "tapu-koko", "tapu-lele",
+            "bruxish", "drampa", "dhelmise", "jangmo-o", "hakamo-o", "kommo-o", "tapu-koko", "tapu-lele",
             "tapu-bulu", "tapu-fini", "cosmog", "cosmoem", "solgaleo", "lunala", "nihilego", "buzzwole", "pheromosa",
             "xurkitree", "celesteela", "kartana", "guzzlord", "necrozma", "magearna", "marshadow", "poipole", "naganadel",
             "stakataka", "blacephalon", "zeraora", "meltan", "melmetal",
@@ -147,7 +147,7 @@ def obtener_info_pokemon(pokemones):
     for nombre in pokemones:
         try:
             # Realizar una solicitud para obtener los datos del Pokemon
-            url = f"https://pokeapi.co/api/v2/pokemon-species/{nombre}/"
+            url = f"https://pokeapi.co/api/v2/pokemon/{nombre}/"
             respuesta = requests.get(url)
 
             # Extraer la respuesta en formato JSON
