@@ -135,7 +135,7 @@ def obtener_pokemon():
             "shroodle", "grafaiai", "capsakid", "scovillain", "tadbulb", "bellibolt", "wattrel", "kilowattrel", "bramblin",
             "brambleghast", "toedscool", "toedscruel", "klawf", "cetoddle", "cetitan", "veluza", "dondozo",
             "annihilape", "clodsire", "tinkatink", "tinkatuff", "tinkaton", "wiglett", "wugtrio", "bombirdier", "finizen",
-            "palafin", "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora",
+            "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora",
 ] 
 
 
@@ -181,7 +181,7 @@ def obtener_info_pokemon(pokemones):
                 'Tipos': tipos  # Tipos de Pokemon (agua, fuego, etc.)
             })
         except requests.exceptions.RequestException as e:
-            st.warning(f"{nombre} No se encuentra actualmente en la PokeApi. Error de red: {e}")
+            st.warning(f"Lo sentimos, {nombre} no se encuentra actualmente en la PokeApi. Error de red: {e}")
         except KeyError as e:
             st.warning(f"Error al procesar los datos de {nombre}. Información incompleta. Error: {e}")
 
