@@ -191,36 +191,27 @@ def obtener_info_pokemon(pokemones):
 def main():
     st.title("Información de Pokémon")  # Título
 
-    # Cargar la lista predefinida
+    # Cargar la lista predefinida 
     lista_pokemon = obtener_pokemon()
 
-    # Inicializar el estado si no existe
-    if "pokemon_seleccionados" not in st.session_state:
-        st.session_state["pokemon_seleccionados"] = []
+    # Variable para almacenar Pokémon seleccionados
+    input_pokemon = st.multiselect("Selecciona los Pokémon para ver su información:", lista_pokemon)
 
-    # Crear el multiselect basado en el estado actual
-    input_pokemon = st.multiselect(
-        "Selecciona los Pokémon para ver su información:",
-        lista_pokemon,
-        default=st.session_state["pokemon_seleccionados"]
-    )
-
-    # Actualizar el estado al cambiar el multiselect manualmente
-    if input_pokemon != st.session_state["pokemon_seleccionados"]:
-        st.session_state["pokemon_seleccionados"] = input_pokemon
-
-    # Botón para seleccionar Pokémon aleatorios
+    # Botón para generar 10 Pokémon aleatorios
     if st.button("Seleccionar 10 Pokémon al azar"):
-        seleccion_aleatoria = random.sample(lista_pokemon, min(10, len(lista_pokemon)))
-        st.session_state["pokemon_seleccionados"] = list(set(st.session_state["pokemon_seleccionados"] + seleccion_aleatoria))
-        st.experimental_rerun()  # Forzar la actualización de la interfaz para reflejar los cambios
+        seleccion_aleatoria = random.sample(lista_pokemon, min(10, len(lista_pokemon)))  # Selecciona máximo 10 Pokémon
+        input_pokemon.extend(seleccion_aleatoria)  # Agregar la selección aleatoria
+        input_pokemon = list(set(input_pokemon))  # Eliminar duplicados
+        st.experimental_set_query_params(pokemon=",".join(input_pokemon))  # Mantener persistencia
 
-    # Mostrar la información de los Pokémon seleccionados
-    if st.session_state["pokemon_seleccionados"]:
-        info = obtener_info_pokemon(st.session_state["pokemon_seleccionados"])
+    # Procesar la entrada de Pokémon seleccionados
+    if input_pokemon:
+        # Obtener la información de los Pokémon seleccionados
+        info = obtener_info_pokemon(input_pokemon)
+
         if info:
+            # Crear un DataFrame de pandas con la información de los Pokémon
             df = pd.DataFrame(info)
-            st.dataframe(df)
 
 
             # Mapeo de generaciones para mostrarlo con formato amigable
