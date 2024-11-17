@@ -65,4 +65,5 @@ Aún no disponibles.
 
 ## 📝 **Licencia**
 
-Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Todos los derechos reservados. Este proyecto y sus contenidos están protegidos por derechos de propiedad intelectual y pertenecen a The Pokémon Company, sus afiliados y licenciantes.
+---
