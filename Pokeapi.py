@@ -10,7 +10,7 @@ import random
 #https://pokeapi-subarudev.streamlit.app
 
 
-
+@st.cache_data
 # Funcion que devuelve una lista de los nombres de los Pokemon para el 
 def obtener_pokemon():
     return [ 
@@ -185,7 +185,7 @@ def obtener_info_pokemon(pokemones):
             st.warning(f"Error al procesar los datos de {nombre}. Información incompleta. Error: {e}")
 
     return info_pokemon  # Devolver la lista con la información de los Pokemon
-
+@st.cache_data
 # Función principal de la aplicación
 def main():
     st.title("Información de Pokémon")  # Título
