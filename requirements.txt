@@ -3,3 +3,6 @@ pandas
 matplotlib
 requests
 streamlit
+aiohttp
+asyncio
+random
