@@ -60,7 +60,7 @@ def obtener_pokemon():
             "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie",
             "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon",
             "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias",
-            "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys",
+            "latios", "kyogre", "groudon", "rayquaza", "jirachi", #"deoxys",
             #Cuarta generacion
             "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon",
             "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio",
