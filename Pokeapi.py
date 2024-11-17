@@ -133,9 +133,8 @@ def obtener_pokemon():
             "shroodle", "grafaiai", "capsakid", "scovillain", "tadbulb", "bellibolt", "wattrel", "kilowattrel", "bramblin",
             "brambleghast", "toedscool", "toedscruel", "klawf", "cetoddle", "cetitan", "veluza", "dondozo", "tatsugiri",
             "annihilape", "clodsire", "tinkatink", "tinkatuff", "tinkaton", "wiglett", "wugtrio", "bombirdier", "finizen",
-            "palafin", "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora"
+            "palafin", "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora",
 ] 
-
 
 
 # Función para obtener la información de cada Pokemon
