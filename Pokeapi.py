@@ -213,9 +213,6 @@ def main():
             # Crear un DataFrame de pandas con la información de los Pokémon
             df = pd.DataFrame(info)
 
-            # Mostrar la tabla con la información detallada
-            st.subheader("Datos de los Pokémon seleccionados")
-            st.dataframe(df)
 
             # Mapeo de generaciones para mostrarlo con formato amigable
             generacion_map = {
