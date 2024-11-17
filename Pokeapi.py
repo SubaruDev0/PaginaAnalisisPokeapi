@@ -3,6 +3,7 @@ import requests
 import pokebase as pb
 import matplotlib.pyplot as plt
 import pandas as pd
+import random 
 
 
 
