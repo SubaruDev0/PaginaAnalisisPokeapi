@@ -130,7 +130,7 @@ def obtener_pokemon():
             "flittle", "espathra", "farigiraf", "kingambit", "grimsnarl", 
             "nacli", "naclstack", "garganacl", "gimmighoul", "gholdengo", "great-tusk", "scream-tail",
             "brute-bonnet", "flutter-mane", "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle", "iron-hands",
-            "iron-jugulis", "iron-moth", "iron-thorns", "frigibax", "arctibax", "baxcalibur", "tandemaus", "maushold",
+            "iron-jugulis", "iron-moth", "iron-thorns", "frigibax", "arctibax", "baxcalibur", "tandemaus",
             "fidough", "dachsbun", "smoliv", "dolliv", "arboliva", "pawmi", "pawmo", "pawmot", "mabosstiff",
             "shroodle", "grafaiai", "capsakid", "scovillain", "tadbulb", "bellibolt", "wattrel", "kilowattrel", "bramblin",
             "brambleghast", "toedscool", "toedscruel", "klawf", "cetoddle", "cetitan", "veluza", "dondozo",
@@ -282,12 +282,12 @@ def main():
             # Diccionario de colores para cada tipo de Pokémon
             tipo_colores = {
                 'normal': '#A8A878',
-                'fire': '#F08030',
+                'fire': '#C03028',
                 'water': '#6890F0',
                 'electric': '#F8D030',
                 'grass': '#78C850',
                 'ice': '#98D8D8',
-                'fighting': '#C03028',
+                'fighting': '#F08030',
                 'poison': '#A040A0',
                 'ground': '#E0C068',
                 'flying': '#A890F0',
