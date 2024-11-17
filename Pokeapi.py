@@ -137,7 +137,7 @@ def obtener_pokemon():
             "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora",
 ] 
 
-
+@st.cache_data
 # Función para obtener la información de cada Pokemon
 def obtener_info_pokemon(pokemones):
     info_pokemon = []  # Lista para almacenar los datos de los Pokemones
