@@ -64,7 +64,7 @@ def obtener_pokemon():
             #Cuarta generacion
             "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon",
             "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio",
-            "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam",
+            "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy",
             "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos",
             "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow",
             "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime-jr", "happiny",
@@ -91,7 +91,7 @@ def obtener_pokemon():
             "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo",
             "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary",
             "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona",
-            "cobalion", "terrakion", "virizion", "tornadus", "reshiram", "zekrom", "landorus", "kyurem",
+            "cobalion", "terrakion", "virizion", "tornadus", "reshiram", "zekrom", "kyurem",
             "genesect", #meloetta
             #Sexta generacion
             "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja",
@@ -105,7 +105,7 @@ def obtener_pokemon():
             #Septima generacion
             "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina", "pikipek",
             "trumbeak", "toucannon", "yungoos", "gumshoos", "grubbin", "charjabug", "vikavolt", "crabrawler", "crabominable",
-            "oricorio", "cutiefly", "ribombee", "rockruff", "lycanroc", "wishiwashi", "mareanie", "toxapex", "mudbray",
+            "cutiefly", "ribombee", "rockruff", "wishiwashi", "mareanie", "toxapex", "mudbray",
             "mudsdale", "dewpider", "araquanid", "fomantis", "lurantis", "morelull", "shiinotic", "salandit", "salazzle",
             "stufful", "bewear", "bounsweet", "steenee", "tsareena", "comfey", "oranguru", "passimian", "wimpod", "golisopod",
             "sandygast", "palossand", "pyukumuku", "type-null", "silvally", "komala", "turtonator", "togedemaru",
@@ -131,7 +131,7 @@ def obtener_pokemon():
             "squawkabilly", "nacli", "naclstack", "garganacl", "gimmighoul", "gholdengo", "great-tusk", "scream-tail",
             "brute-bonnet", "flutter-mane", "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle", "iron-hands",
             "iron-jugulis", "iron-moth", "iron-thorns", "frigibax", "arctibax", "baxcalibur", "tandemaus", "maushold",
-            "fidough", "dachsbun", "smoliv", "dolliv", "arboliva", "pawmi", "pawmo", "pawmot", "mastiff", "mabosstiff",
+            "fidough", "dachsbun", "smoliv", "dolliv", "arboliva", "pawmi", "pawmo", "pawmot", "mabosstiff",
             "shroodle", "grafaiai", "capsakid", "scovillain", "tadbulb", "bellibolt", "wattrel", "kilowattrel", "bramblin",
             "brambleghast", "toedscool", "toedscruel", "klawf", "cetoddle", "cetitan", "veluza", "dondozo", "tatsugiri",
             "annihilape", "clodsire", "tinkatink", "tinkatuff", "tinkaton", "wiglett", "wugtrio", "bombirdier", "finizen",
@@ -301,8 +301,8 @@ def main():
                 'fairy': '#EE99AC'
             }
 
-            # Verificar que todos los tipos en los datos tengan un color asignado
-            # Si alguno no tiene un color asignado en el diccionario, lo pondremos en gris
+            
+           
             colores = [tipo_colores.get(tipo, '#808080') for tipo in tipos.index]
 
             # Título del gráfico de distribución por tipo fuera del gráfico
