@@ -236,7 +236,7 @@ def main():
             st.subheader("Datos de los Pokémon")
             st.dataframe(df)
 
-           # Gráfico de altura
+            # Gráfico de altura
             st.subheader("Altura de los Pokémon")
             plt.figure(figsize=(10, 6))
             bars = plt.bar(df['Nombre'], df['Altura (m)'], color='skyblue', edgecolor='black')
@@ -246,10 +246,10 @@ def main():
             plt.yticks(fontsize=10)
             plt.grid(axis='y', linestyle='--', alpha=0.7)
 
-            # Añadir valores dentro de las barras
+            # Añadir valores encima de las barras
             for bar in bars:
                 height = bar.get_height()
-                plt.text(bar.get_x() + bar.get_width() / 2, height - 0.1,  # Ajustar la posición del texto
+                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.05,  # Ajustar la posición del texto encima de la barra
                         f'{height:.2f}', ha='center', va='bottom', color='black', fontsize=10)
 
             st.pyplot(plt)
@@ -264,10 +264,10 @@ def main():
             plt.yticks(fontsize=10)
             plt.grid(axis='y', linestyle='--', alpha=0.7)
 
-            # Añadir valores dentro de las barras
+            # Añadir valores encima de las barras
             for bar in bars:
                 height = bar.get_height()
-                plt.text(bar.get_x() + bar.get_width() / 2, height - 0.1,  # Ajustar la posición del texto
+                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.05,  # Ajustar la posición del texto encima de la barra
                         f'{height:.2f}', ha='center', va='bottom', color='black', fontsize=10)
 
             st.pyplot(plt)
