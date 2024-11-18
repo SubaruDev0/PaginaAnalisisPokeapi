@@ -249,7 +249,7 @@ def main():
             # Añadir valores encima de las barras
             for bar in bars:
                 height = bar.get_height()
-                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.05,  # Ajustar la posición del texto encima de la barra
+                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.02,  # Ajustar la posición del texto encima de la barra
                         f'{height:.2f}', ha='center', va='bottom', color='black', fontsize=10)
 
             st.pyplot(plt)
@@ -332,7 +332,7 @@ def main():
             # Añadir valores encima de las barras
             for bar in bars:
                 height = bar.get_height()
-                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.1,  # Ajustar la posición del texto encima de la barra
+                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.02,  # Ajustar la posición del texto encima de la barra
                         f'{height}', ha='center', va='bottom', color='black', fontsize=10)
 
             st.pyplot(plt)
