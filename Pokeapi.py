@@ -321,18 +321,20 @@ def main():
             # Título del gráfico de distribución por tipo fuera del gráfico
             st.subheader("Distribución de Pokémon por Tipo")
             plt.figure(figsize=(10, 6))
-            plt.bar(tipos.index, tipos.values, color=colores, edgecolor='black')
+            bars = plt.bar(tipos.index, tipos.values, color=colores, edgecolor='black')
             plt.xlabel("Tipo", fontsize=12)
             plt.ylabel("Número de Pokémon", fontsize=12)
             plt.xticks(rotation=45, fontsize=10)
             plt.yticks(fontsize=10)
             plt.gca().yaxis.set_major_locator(plt.MaxNLocator(integer=True))
             plt.grid(axis='y', linestyle='--', alpha=0.7)
-                        # Añadir valores encima de las barras
+
+            # Añadir valores encima de las barras
             for bar in bars:
                 height = bar.get_height()
-                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.05,  # Ajustar la posición del texto encima de la barra
-                        f'{height:.2f}', ha='center', va='bottom', color='black', fontsize=10)
+                plt.text(bar.get_x() + bar.get_width() / 2, height + 0.1,  # Ajustar la posición del texto encima de la barra
+                        f'{height}', ha='center', va='bottom', color='black', fontsize=10)
+
             st.pyplot(plt)
 
 
