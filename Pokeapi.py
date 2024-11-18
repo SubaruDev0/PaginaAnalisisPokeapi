@@ -236,26 +236,40 @@ def main():
             st.subheader("Datos de los Pokémon")
             st.dataframe(df)
 
-            # Título del gráfico de altura fuera del gráfico
+           # Gráfico de altura
             st.subheader("Altura de los Pokémon")
             plt.figure(figsize=(10, 6))
-            plt.bar(df['Nombre'], df['Altura (m)'], color='skyblue', edgecolor='black')
+            bars = plt.bar(df['Nombre'], df['Altura (m)'], color='skyblue', edgecolor='black')
             plt.xlabel("Pokémon", fontsize=12)
             plt.ylabel("Altura (m)", fontsize=12)
-            plt.xticks(rotation=45, fontsize=10)  # Rotar los nombres de los Pokemon para mejor visibilidad
+            plt.xticks(rotation=45, fontsize=10)
             plt.yticks(fontsize=10)
-            plt.grid(axis='y', linestyle='--', alpha=0.7)  # Añadir una cuadrícula horizontal
+            plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+            # Añadir valores dentro de las barras
+            for bar in bars:
+                height = bar.get_height()
+                plt.text(bar.get_x() + bar.get_width() / 2, height - 0.1,  # Ajustar la posición del texto
+                        f'{height:.2f}', ha='center', va='bottom', color='black', fontsize=10)
+
             st.pyplot(plt)
 
-            # Título del gráfico de peso fuera del gráfico
+            # Gráfico de peso
             st.subheader("Peso de los Pokémon")
             plt.figure(figsize=(10, 6))
-            plt.bar(df['Nombre'], df['Peso (kg)'], color='salmon', edgecolor='black')
+            bars = plt.bar(df['Nombre'], df['Peso (kg)'], color='salmon', edgecolor='black')
             plt.xlabel("Pokémon", fontsize=12)
             plt.ylabel("Peso (kg)", fontsize=12)
             plt.xticks(rotation=45, fontsize=10)
             plt.yticks(fontsize=10)
             plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+            # Añadir valores dentro de las barras
+            for bar in bars:
+                height = bar.get_height()
+                plt.text(bar.get_x() + bar.get_width() / 2, height - 0.1,  # Ajustar la posición del texto
+                        f'{height:.2f}', ha='center', va='bottom', color='black', fontsize=10)
+
             st.pyplot(plt)
 
             # Contar la cantidad de Pokémon por generación
