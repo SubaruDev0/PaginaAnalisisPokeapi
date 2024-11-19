@@ -344,8 +344,8 @@ def main():
             # Gráfico de radar para todas las estadísticas
             st.subheader("Comparación de Estadísticas Base de los Pokémon")
 
-            # Seleccionar estadísticas relevantes en el orden oficial
-            estadisticas = ['HP', 'Ataque Especial', 'Ataque', 'Defensa Especial', 'Defensa', 'Velocidad']
+            # Seleccionar estadísticas relevantes en el orden oficial proporcionado
+            estadisticas = ['HP', 'Ataque', 'Ataque Especial', 'Defensa', 'Defensa Especial', 'Velocidad']
 
             # Calcular promedio de cada estadística
             promedios = df[estadisticas].mean()
@@ -355,8 +355,7 @@ def main():
             valores_normalizados = [promedios[stat] / limites[stat] for stat in estadisticas]
 
             # Crear el gráfico de radar
-            categorias = estadisticas
-            num_categorias = len(categorias)
+            num_categorias = len(estadisticas)
 
             # Calcular los ángulos del gráfico
             angulos = [n / float(num_categorias) * 2 * 3.14159 for n in range(num_categorias)]
@@ -371,26 +370,30 @@ def main():
             ax.plot(angulos, valores_normalizados, linewidth=2, linestyle='solid')
             ax.fill(angulos, valores_normalizados, color='skyblue', alpha=0.4)
 
-            # Ajustar etiquetas y ángulos para alinearse al diseño oficial
-            ax.set_theta_offset(3.14159 / 2)
-            ax.set_theta_direction(-1)
-            plt.xticks(angulos[:-1], categorias, fontsize=12)
+            # Ajustar etiquetas y ángulos para alinearse al diseño solicitado
+            ax.set_theta_offset(3.14159 / 2)  # Arriba: HP
+            ax.set_theta_direction(-1)  # Sentido antihorario
 
-            # Mejorar posición y espaciado de etiquetas
+            # Etiquetas en el orden correcto
+            plt.xticks(angulos[:-1], estadisticas, fontsize=12)
+
+            # Ajustar etiquetas manualmente para evitar colisión con las líneas
             for label, angle in zip(ax.get_xticklabels(), angulos[:-1]):
-                x, y = label.get_position()
-                label.set_position((x + 0.1, y + 0.1))  # Ajustar el desplazamiento
-                label.set_rotation(angle * 180 / 3.14159)  # Ajustar rotación para evitar solapamiento
+                angle_deg = angle * 180 / 3.14159  # Convertir ángulo a grados
+                if 90 <= angle_deg <= 270:  # Si está en la parte izquierda
+                    label.set_horizontalalignment('right')
+                else:  # Parte derecha
+                    label.set_horizontalalignment('left')
+                label.set_rotation(angle_deg)  # Rotar según el ángulo
 
+            # Límites y diseño del gráfico
             ax.yaxis.grid(True)
-
-            # Agregar valores de referencia en el gráfico
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
-            plt.title("Estadísticas Base Normalizadas", fontsize=14, pad=20)  # Ajustar el título con padding extra
-            plt.tight_layout()  # Ajustar márgenes automáticamente
+            plt.title("Estadísticas Base Normalizadas", fontsize=14, pad=20)
 
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
+
 
 
 
