@@ -341,11 +341,11 @@ def main():
 
             st.pyplot(plt)
 
-           # Gráfico de radar para todas las estadísticas
+            # Gráfico de radar para todas las estadísticas
             st.subheader("Comparación de Estadísticas Base de los Pokémon")
 
             # Seleccionar estadísticas relevantes en el orden oficial
-            estadisticas = ['HP', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad']
+            estadisticas = ['HP', 'Ataque Especial', 'Ataque', 'Defensa Especial', 'Defensa', 'Velocidad']
 
             # Calcular promedio de cada estadística
             promedios = df[estadisticas].mean()
@@ -355,7 +355,7 @@ def main():
             valores_normalizados = [promedios[stat] / limites[stat] for stat in estadisticas]
 
             # Crear el gráfico de radar
-            categorias = list(promedios.index)
+            categorias = estadisticas
             num_categorias = len(categorias)
 
             # Calcular los ángulos del gráfico
@@ -371,14 +371,24 @@ def main():
             ax.plot(angulos, valores_normalizados, linewidth=2, linestyle='solid')
             ax.fill(angulos, valores_normalizados, color='skyblue', alpha=0.4)
 
-            # Ajustar etiquetas y título
+            # Ajustar etiquetas y ángulos para alinearse al diseño oficial
             ax.set_theta_offset(3.14159 / 2)
             ax.set_theta_direction(-1)
             plt.xticks(angulos[:-1], categorias, fontsize=12)
+
+            # Mejorar posición y espaciado de etiquetas
+            for label, angle in zip(ax.get_xticklabels(), angulos[:-1]):
+                x, y = label.get_position()
+                label.set_position((x + 0.1, y + 0.1))  # Ajustar el desplazamiento
+                label.set_rotation(angle * 180 / 3.14159)  # Ajustar rotación para evitar solapamiento
+
             ax.yaxis.grid(True)
 
             # Agregar valores de referencia en el gráfico
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
+            plt.title("Estadísticas Base Normalizadas", fontsize=14, pad=20)  # Ajustar el título con padding extra
+            plt.tight_layout()  # Ajustar márgenes automáticamente
+
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
 
