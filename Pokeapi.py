@@ -117,7 +117,7 @@ def obtener_pokemon():
             "greedent", "rookidee", "corvisquire", "corviknight", "blipbug", "dottler", "orbeetle", "nickit", "thievul",
             "gossifleur", "eldegoss", "wooloo", "dubwool", "chewtle", "drednaw", "yamper", "boltund", "rolycoly", "carkol",
             "coalossal", "applin", "flapple", "appletun", "silicobra", "sandaconda", "cramorant", "arrokuda", "barraskewda",
-            "toxel", "toxtricity", "sizzlipede", "centiskorch", "clobbopus", "grapploct", "sinistea", "polteageist", "hatenna",
+            "toxel", "sizzlipede", "centiskorch", "clobbopus", "grapploct", "sinistea", "polteageist", "hatenna",
             "hattrem", "hatterene", "impidimp", "morgrem", "grimmsnarl", "obstagoon", "perrserker", "cursola", "sirfetchd",
             "mr-rime", "runerigus", "milcery", "alcremie", "falinks", "pincurchin", "snom", "frosmoth", "stonjourner",
             "indeedee", "morpeko", "cufant", "copperajah", "dracozolt", "arctozolt", "dracovish", "arctovish",
@@ -271,28 +271,18 @@ def main():
 
             st.pyplot(plt)
 
-            # Gráfico de pirámide para las generaciones
-            st.subheader("Distribución de Pokémon por Generación (Pirámide)")
+            # Contar la cantidad de Pokémon por generación
+            contador_por_generacion = df['Generación'].value_counts()
 
-            # Dividir generaciones pares e impares
-            generaciones_pares = contador_por_generacion[contador_por_generacion.index.str.contains('2|4|6|8')].sort_index()
-            generaciones_impares = contador_por_generacion[~contador_por_generacion.index.str.contains('2|4|6|8')].sort_index()
+            # Colores para cada generación
+            colores_generaciones = ['#ff9999','#66b3ff','#99ff99','#ffcc99','#c2c2f0','#ffb3e6','#ff6666','#ffccff']
 
-            # Configurar las barras para el gráfico de pirámide
-            plt.figure(figsize=(10, 6))
-            plt.barh(generaciones_impares.index, generaciones_impares.values, color='lightblue', label='Generaciones Impares')
-            plt.barh(generaciones_pares.index, -generaciones_pares.values, color='lightcoral', label='Generaciones Pares')
-
-            # Ajustar etiquetas
-            plt.xlabel("Número de Pokémon", fontsize=12)
-            plt.ylabel("Generación", fontsize=12)
-            plt.title("Pirámide de Distribución de Generaciones", fontsize=14)
-            plt.xticks(fontsize=10)
-            plt.yticks(fontsize=10)
-            plt.legend(fontsize=10)
-            plt.grid(axis='x', linestyle='--', alpha=0.7)
-
-            # Mostrar gráfico en Streamlit
+            # Título del gráfico de distribución por generación fuera del gráfico
+            st.subheader("Distribución de Pokémon por Generación")
+            plt.figure(figsize=(8, 8))
+            plt.pie(contador_por_generacion.values, labels=contador_por_generacion.index, colors=colores_generaciones, 
+                    autopct='%1.1f%%', startangle=140, wedgeprops={'edgecolor': 'black', 'linewidth': 1, 'linestyle': 'solid'})
+            plt.axis('equal')  # Para que el gráfico se vea como un círculo perfecto
             st.pyplot(plt)
 
             # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
@@ -345,6 +335,41 @@ def main():
                 plt.text(bar.get_x() + bar.get_width() / 2, height + 0.02,  # Ajustar la posición del texto encima de la barra
                         f'{height}', ha='center', va='bottom', color='black', fontsize=10)
 
+            st.pyplot(plt)
+
+                        # Gráfico de radar para las estadísticas
+            st.subheader("Comparación de Estadísticas Base de los Pokémon")
+
+            # Seleccionar estadísticas relevantes
+            estadisticas = ['HP', 'Ataque', 'Defensa', 'Velocidad']
+
+            # Calcular promedio de cada estadística
+            promedios = df[estadisticas].mean()
+
+            # Crear el gráfico de radar
+            categorias = list(promedios.index)
+            num_categorias = len(categorias)
+
+            # Calcular los ángulos del gráfico
+            angulos = [n / float(num_categorias) * 2 * 3.14159 for n in range(num_categorias)]
+            angulos += angulos[:1]  # Cerrar el gráfico
+
+            # Configuración del gráfico
+            plt.figure(figsize=(8, 8))
+            ax = plt.subplot(111, polar=True)
+            promedios_valores = list(promedios) + [promedios[0]]  # Cerrar el gráfico
+            ax.plot(angulos, promedios_valores, linewidth=2, linestyle='solid', label="Promedio de Estadísticas")
+            ax.fill(angulos, promedios_valores, color='skyblue', alpha=0.4)
+
+            # Ajustar etiquetas y título
+            ax.set_theta_offset(3.14159 / 2)
+            ax.set_theta_direction(-1)
+            plt.xticks(angulos[:-1], categorias, fontsize=12)
+            ax.yaxis.grid(True)
+            plt.title("Estadísticas Base Promedio", fontsize=14)
+            plt.legend(loc='upper right', fontsize=10)
+
+            # Mostrar gráfico en Streamlit
             st.pyplot(plt)
 
 
