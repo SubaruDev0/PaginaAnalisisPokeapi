@@ -341,7 +341,7 @@ def main():
 
             st.pyplot(plt)
 
-            # Gráfico de radar para todas las estadísticas
+                        # Gráfico de radar para todas las estadísticas
             st.subheader("Comparación de Estadísticas Base de los Pokémon")
 
             # Seleccionar estadísticas relevantes en el orden oficial proporcionado
