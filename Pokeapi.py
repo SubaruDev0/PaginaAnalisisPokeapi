@@ -72,7 +72,7 @@ def obtener_pokemon():
             "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire",
             "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon-z", "gallade",
             "probopass", "dusknoir", "froslass", "rotom", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran",
-            "regigigas", "giratina", "cresselia", "phione", "manaphy", "darkrai", "arceus",
+            "regigigas", "cresselia", "phione", "manaphy", "darkrai", "arceus",
             #Quinta generacion
             "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott",
             "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear",
@@ -195,9 +195,9 @@ def main():
     # Variable para almacenar Pokémon seleccionados
     input_pokemon = st.multiselect("Selecciona los Pokémon para ver su información:", lista_pokemon)
 
-    # Botón para generar 10 Pokémon aleatorios
-    if st.button("Seleccionar 10 Pokémon al azar"):
-        seleccion_aleatoria = random.sample(lista_pokemon, min(10, len(lista_pokemon)))  # Selecciona máximo 10 Pokémon
+    # Botón para generar 6 Pokémon aleatorios
+    if st.button("Seleccionar 6 Pokémon al azar"):
+        seleccion_aleatoria = random.sample(lista_pokemon, min(6, len(lista_pokemon)))  # Selecciona máximo 6 Pokémon
         input_pokemon.extend(seleccion_aleatoria)  # Agregar la selección aleatoria
         input_pokemon = list(set(input_pokemon))  # Eliminar duplicados
         st.experimental_set_query_params(pokemon=",".join(input_pokemon))  # Mantener persistencia
