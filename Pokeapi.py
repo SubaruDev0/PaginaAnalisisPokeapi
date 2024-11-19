@@ -371,27 +371,36 @@ def main():
             ax.fill(angulos, valores_normalizados, color='skyblue', alpha=0.4)
 
             # Ajustar etiquetas y ángulos para alinearse al diseño solicitado
-            ax.set_theta_offset(3.14159 / 2 + 0.1)  # Desplazamiento para mover "Velocidad" más a la izquierda
+            ax.set_theta_offset(3.14159 / 2)  # Arriba: HP
             ax.set_theta_direction(-1)  # Sentido antihorario
 
-            # Etiquetas en el orden correcto
+            # Etiquetas en posiciones precisas con rotación alineada
             plt.xticks(angulos[:-1], estadisticas, fontsize=12)
 
-            # Ajustar etiquetas manualmente para evitar colisión con las líneas
+            # Alinear las etiquetas de acuerdo con los ángulos
             for label, angle in zip(ax.get_xticklabels(), angulos[:-1]):
                 angle_deg = angle * 180 / 3.14159  # Convertir ángulo a grados
-                if 90 <= angle_deg <= 270:  # Si está en la parte izquierda
-                    label.set_horizontalalignment('right')
-                else:  # Parte derecha
+                if angle_deg == 0 or angle_deg == 180:  # Arriba o abajo
+                    label.set_horizontalalignment('center')
+                elif 0 < angle_deg < 180:  # Derecha
                     label.set_horizontalalignment('left')
+                else:  # Izquierda
+                    label.set_horizontalalignment('right')
                 label.set_rotation(angle_deg)  # Rotar según el ángulo
 
             # Límites y diseño del gráfico
             ax.yaxis.grid(True)
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
 
+            # Ajustar el título para que quede centrado arriba del gráfico
+            plt.title("Estadísticas Base promedio de los Pokémon seleccionados", fontsize=14, pad=30)
+
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
+
+
+
+
 
 if __name__ == '__main__':
     main()  # Llamar a la función principal para ejecutar la app
