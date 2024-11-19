@@ -341,7 +341,7 @@ def main():
 
             st.pyplot(plt)
 
-                        # Gráfico de radar para todas las estadísticas
+            # Gráfico de radar para todas las estadísticas
             st.subheader("Comparación de Estadísticas Base de los Pokémon")
 
             # Seleccionar estadísticas relevantes en el orden oficial proporcionado
@@ -371,7 +371,7 @@ def main():
             ax.fill(angulos, valores_normalizados, color='skyblue', alpha=0.4)
 
             # Ajustar etiquetas y ángulos para alinearse al diseño solicitado
-            ax.set_theta_offset(3.14159 / 2)  # Arriba: HP
+            ax.set_theta_offset(3.14159 / 2 + 0.1)  # Desplazamiento para mover "Velocidad" más a la izquierda
             ax.set_theta_direction(-1)  # Sentido antihorario
 
             # Etiquetas en el orden correcto
@@ -392,9 +392,6 @@ def main():
 
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
-
-
-
 
 if __name__ == '__main__':
     main()  # Llamar a la función principal para ejecutar la app
