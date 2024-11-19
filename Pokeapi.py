@@ -379,9 +379,6 @@ def main():
 
             # Agregar valores de referencia en el gráfico
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
-            plt.title("Estadísticas Base Normalizadas", fontsize=14, pad=20)  # Mover el título hacia arriba
-            plt.legend(loc='upper right', fontsize=10, bbox_to_anchor=(1.3, 1))  # Mover la leyenda fuera del círculo
-
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
 
