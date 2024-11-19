@@ -392,9 +392,6 @@ def main():
             ax.yaxis.grid(True)
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
 
-            # Ajustar el título para que quede centrado arriba del gráfico
-            plt.title("Estadísticas Base promedio de los Pokémon seleccionados", fontsize=14, pad=30)
-
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
 
