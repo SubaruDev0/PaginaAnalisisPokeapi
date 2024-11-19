@@ -341,17 +341,17 @@ def main():
 
             st.pyplot(plt)
 
-            # Gráfico de radar para las estadísticas
+           # Gráfico de radar para todas las estadísticas
             st.subheader("Comparación de Estadísticas Base de los Pokémon")
 
-            # Seleccionar estadísticas relevantes
-            estadisticas = ['HP', 'Ataque', 'Defensa', 'Velocidad']
+            # Seleccionar estadísticas relevantes en el orden oficial
+            estadisticas = ['HP', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad']
 
             # Calcular promedio de cada estadística
             promedios = df[estadisticas].mean()
 
             # Límites máximos para las estadísticas (basado en valores típicos de Pokémon)
-            limites = {'HP': 255, 'Ataque': 190, 'Defensa': 230, 'Velocidad': 200}
+            limites = {'HP': 255, 'Ataque': 190, 'Defensa': 230, 'Ataque Especial': 194, 'Defensa Especial': 230, 'Velocidad': 200}
             valores_normalizados = [promedios[stat] / limites[stat] for stat in estadisticas]
 
             # Crear el gráfico de radar
@@ -379,8 +379,8 @@ def main():
 
             # Agregar valores de referencia en el gráfico
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
-            plt.title("Estadísticas Base Normalizadas", fontsize=14)
-            plt.legend(loc='upper right', fontsize=10)
+            plt.title("Estadísticas Base Normalizadas", fontsize=14, pad=20)  # Mover el título hacia arriba
+            plt.legend(loc='upper right', fontsize=10, bbox_to_anchor=(1.3, 1))  # Mover la leyenda fuera del círculo
 
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
