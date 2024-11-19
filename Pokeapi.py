@@ -331,7 +331,7 @@ def main():
             plt.xticks(rotation=45, fontsize=10)
             plt.yticks(fontsize=10)
             plt.gca().yaxis.set_major_locator(plt.MaxNLocator(integer=True))
-            plt.grid(axis='y', linestyle='--', alpha=0.7)
+            plt.grid(axis='y', linestyle='--', alpha=0.5)
 
             # Añadir valores encima de las barras
             for bar in bars:
