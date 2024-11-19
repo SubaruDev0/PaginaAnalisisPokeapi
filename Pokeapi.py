@@ -368,7 +368,7 @@ def main():
 
             # Cerrar el gráfico de radar
             valores_normalizados += valores_normalizados[:1]
-            ax.plot(angulos, valores_normalizados, linewidth=2, linestyle='solid', label="Promedio de Estadísticas")
+            ax.plot(angulos, valores_normalizados, linewidth=2, linestyle='solid')
             ax.fill(angulos, valores_normalizados, color='skyblue', alpha=0.4)
 
             # Ajustar etiquetas y título
