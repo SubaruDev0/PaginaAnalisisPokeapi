@@ -389,7 +389,7 @@ def main():
             # Límites y diseño del gráfico
             ax.yaxis.grid(True)
             ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
-            plt.title("Estadísticas Base Normalizadas", fontsize=14, pad=20)
+            plt.title( fontsize=14, pad=20)
 
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
