@@ -136,7 +136,6 @@ def obtener_pokemon():
             "annihilape", "clodsire", "tinkatink", "tinkatuff", "tinkaton", "wiglett", "wugtrio", "bombirdier", "finizen",
             "varoom", "revavroom", "cyclizar", "orthworm", "glimmet", "glimmora",
 ] 
-
 @st.cache_data
 # Función para obtener la información de cada Pokemon
 def obtener_info_pokemon(pokemones):
@@ -272,18 +271,61 @@ def main():
 
             st.pyplot(plt)
 
-            # Contar la cantidad de Pokémon por generación
-            contador_por_generacion = df['Generación'].value_counts()
+            # Gráfico de pirámide para las generaciones
+            st.subheader("Distribución de Pokémon por Generación (Pirámide)")
 
-            # Colores para cada generación
-            colores_generaciones = ['#ff9999','#66b3ff','#99ff99','#ffcc99','#c2c2f0','#ffb3e6','#ff6666','#ffccff']
+            # Dividir generaciones pares e impares
+            generaciones_pares = contador_por_generacion[contador_por_generacion.index.str.contains('2|4|6|8')].sort_index()
+            generaciones_impares = contador_por_generacion[~contador_por_generacion.index.str.contains('2|4|6|8')].sort_index()
 
-            # Título del gráfico de distribución por generación fuera del gráfico
-            st.subheader("Distribución de Pokémon por Generación")
+            # Configurar las barras para el gráfico de pirámide
+            plt.figure(figsize=(10, 6))
+            plt.barh(generaciones_impares.index, generaciones_impares.values, color='lightblue', label='Generaciones Impares')
+            plt.barh(generaciones_pares.index, -generaciones_pares.values, color='lightcoral', label='Generaciones Pares')
+
+            # Ajustar etiquetas
+            plt.xlabel("Número de Pokémon", fontsize=12)
+            plt.ylabel("Generación", fontsize=12)
+            plt.title("Pirámide de Distribución de Generaciones", fontsize=14)
+            plt.xticks(fontsize=10)
+            plt.yticks(fontsize=10)
+            plt.legend(fontsize=10)
+            plt.grid(axis='x', linestyle='--', alpha=0.7)
+
+            st.pyplot(plt)
+
+            # Gráfico de radar para las estadísticas
+            st.subheader("Comparación de Estadísticas Base de los Pokémon")
+
+            # Seleccionar estadísticas relevantes
+            estadisticas = ['HP', 'Ataque', 'Defensa', 'Velocidad']
+
+            # Calcular promedio de cada estadística
+            promedios = df[estadisticas].mean()
+
+            # Crear el gráfico de radar
+            categorias = list(promedios.index)
+            num_categorias = len(categorias)
+
+            # Calcular los ángulos del gráfico
+            angulos = [n / float(num_categorias) * 2 * 3.14159 for n in range(num_categorias)]
+            angulos += angulos[:1]  # Cerrar el gráfico
+
+            # Configuración del gráfico
             plt.figure(figsize=(8, 8))
-            plt.pie(contador_por_generacion.values, labels=contador_por_generacion.index, colors=colores_generaciones, 
-                    autopct='%1.1f%%', startangle=140, wedgeprops={'edgecolor': 'black', 'linewidth': 1, 'linestyle': 'solid'})
-            plt.axis('equal')  # Para que el gráfico se vea como un círculo perfecto
+            ax = plt.subplot(111, polar=True)
+            promedios_valores = list(promedios) + [promedios[0]]  # Cerrar el gráfico
+            ax.plot(angulos, promedios_valores, linewidth=2, linestyle='solid', label="Promedio de Estadísticas")
+            ax.fill(angulos, promedios_valores, color='skyblue', alpha=0.4)
+
+            # Ajustar etiquetas y título
+            ax.set_theta_offset(3.14159 / 2)
+            ax.set_theta_direction(-1)
+            plt.xticks(angulos[:-1], categorias, fontsize=12)
+            ax.yaxis.grid(True)
+            plt.title("Estadísticas Base Promedio", fontsize=14)
+            plt.legend(loc='upper right', fontsize=10)
+
             st.pyplot(plt)
 
             # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
@@ -295,16 +337,17 @@ def main():
             # Diccionario de colores para cada tipo de Pokémon
             tipo_colores = {
                 'normal': '#A8A878',
-                'fire': '#C03028',
+                'fire': '#F08030',
                 'water': '#6890F0',
                 'electric': '#F8D030',
                 'grass': '#78C850',
                 'ice': '#98D8D8',
-                'fighting': '#F08030',
+                'fighting': '#C03028',
                 'poison': '#A040A0',
                 'ground': '#E0C068',
                 'flying': '#A890F0',
                 'psychic': '#F85888',
+
                 'bug': '#A8B820',
                 'rock': '#B8A038',
                 'ghost': '#705898',
