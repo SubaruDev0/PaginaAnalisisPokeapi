@@ -193,7 +193,8 @@ def main():
     lista_pokemon = obtener_pokemon()
 
     # Variable para almacenar Pokémon seleccionados
-    input_pokemon = st.multiselect("Selecciona los Pokémon para ver su información:", lista_pokemon)
+    input_pokemon = st.multiselect("Selecciona los Pokémon para ver su información:", lista_pokemon, placeholder="O introduce tu equipo Pokémon"
+)
 
     # Botón para generar 6 Pokémon aleatorios
     if st.button("Seleccionar 6 Pokémon al azar"):
