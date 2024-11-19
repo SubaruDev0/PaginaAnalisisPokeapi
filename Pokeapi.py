@@ -292,40 +292,7 @@ def main():
             plt.legend(fontsize=10)
             plt.grid(axis='x', linestyle='--', alpha=0.7)
 
-            st.pyplot(plt)
-
-            # Gráfico de radar para las estadísticas
-            st.subheader("Comparación de Estadísticas Base de los Pokémon")
-
-            # Seleccionar estadísticas relevantes
-            estadisticas = ['HP', 'Ataque', 'Defensa', 'Velocidad']
-
-            # Calcular promedio de cada estadística
-            promedios = df[estadisticas].mean()
-
-            # Crear el gráfico de radar
-            categorias = list(promedios.index)
-            num_categorias = len(categorias)
-
-            # Calcular los ángulos del gráfico
-            angulos = [n / float(num_categorias) * 2 * 3.14159 for n in range(num_categorias)]
-            angulos += angulos[:1]  # Cerrar el gráfico
-
-            # Configuración del gráfico
-            plt.figure(figsize=(8, 8))
-            ax = plt.subplot(111, polar=True)
-            promedios_valores = list(promedios) + [promedios[0]]  # Cerrar el gráfico
-            ax.plot(angulos, promedios_valores, linewidth=2, linestyle='solid', label="Promedio de Estadísticas")
-            ax.fill(angulos, promedios_valores, color='skyblue', alpha=0.4)
-
-            # Ajustar etiquetas y título
-            ax.set_theta_offset(3.14159 / 2)
-            ax.set_theta_direction(-1)
-            plt.xticks(angulos[:-1], categorias, fontsize=12)
-            ax.yaxis.grid(True)
-            plt.title("Estadísticas Base Promedio", fontsize=14)
-            plt.legend(loc='upper right', fontsize=10)
-
+            # Mostrar gráfico en Streamlit
             st.pyplot(plt)
 
             # Procesar los tipos de Pokémon para el gráfico de distribución por tipo
