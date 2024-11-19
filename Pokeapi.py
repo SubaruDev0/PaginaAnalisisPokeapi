@@ -90,7 +90,7 @@ def obtener_pokemon():
             "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo",
             "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary",
             "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona",
-            "cobalion", "terrakion", "virizion", "reshiram", "zekrom", "kyurem",
+            "cobalion", "terrakion", "virizion", "reshiram", "zekrom", "kyurem",'silveon',
             "genesect", #meloetta
             #Sexta generacion
             "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja",
