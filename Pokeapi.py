@@ -338,7 +338,7 @@ def main():
 
             st.pyplot(plt)
 
-                        # Gráfico de radar para las estadísticas
+            # Gráfico de radar para las estadísticas
             st.subheader("Comparación de Estadísticas Base de los Pokémon")
 
             # Seleccionar estadísticas relevantes
@@ -346,6 +346,10 @@ def main():
 
             # Calcular promedio de cada estadística
             promedios = df[estadisticas].mean()
+
+            # Límites máximos para las estadísticas (basado en valores típicos de Pokémon)
+            limites = {'HP': 255, 'Ataque': 190, 'Defensa': 230, 'Velocidad': 200}
+            valores_normalizados = [promedios[stat] / limites[stat] for stat in estadisticas]
 
             # Crear el gráfico de radar
             categorias = list(promedios.index)
@@ -358,20 +362,26 @@ def main():
             # Configuración del gráfico
             plt.figure(figsize=(8, 8))
             ax = plt.subplot(111, polar=True)
-            promedios_valores = list(promedios) + [promedios[0]]  # Cerrar el gráfico
-            ax.plot(angulos, promedios_valores, linewidth=2, linestyle='solid', label="Promedio de Estadísticas")
-            ax.fill(angulos, promedios_valores, color='skyblue', alpha=0.4)
+
+            # Cerrar el gráfico de radar
+            valores_normalizados += valores_normalizados[:1]
+            ax.plot(angulos, valores_normalizados, linewidth=2, linestyle='solid', label="Promedio de Estadísticas")
+            ax.fill(angulos, valores_normalizados, color='skyblue', alpha=0.4)
 
             # Ajustar etiquetas y título
             ax.set_theta_offset(3.14159 / 2)
             ax.set_theta_direction(-1)
             plt.xticks(angulos[:-1], categorias, fontsize=12)
             ax.yaxis.grid(True)
-            plt.title("Estadísticas Base Promedio", fontsize=14)
+
+            # Agregar valores de referencia en el gráfico
+            ax.set_ylim(0, 1)  # Normalizar entre 0 y 1
+            plt.title("Estadísticas Base Normalizadas", fontsize=14)
             plt.legend(loc='upper right', fontsize=10)
 
             # Mostrar gráfico en Streamlit
             st.pyplot(plt)
+
 
 
 if __name__ == '__main__':
