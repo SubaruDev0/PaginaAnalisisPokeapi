@@ -175,9 +175,12 @@ def obtener_info_pokemon(pokemones):
                 'HP': next(stat['base_stat'] for stat in data['stats'] if stat['stat']['name'] == 'hp'),  # Vida
                 'Ataque': next(stat['base_stat'] for stat in data['stats'] if stat['stat']['name'] == 'attack'),  # Ataque
                 'Defensa': next(stat['base_stat'] for stat in data['stats'] if stat['stat']['name'] == 'defense'),  # Defensa
+                'Ataque Especial': next(stat['base_stat'] for stat in data['stats'] if stat['stat']['name'] == 'special-attack'),  # Ataque especial
+                'Defensa Especial': next(stat['base_stat'] for stat in data['stats'] if stat['stat']['name'] == 'special-defense'),  # Defensa especial
                 'Velocidad': next(stat['base_stat'] for stat in data['stats'] if stat['stat']['name'] == 'speed'),  # Velocidad
                 'Tipos': tipos  # Tipos de Pokemon (agua, fuego, etc.)
             })
+
         except requests.exceptions.RequestException as e:
             st.warning(f"Lo sentimos, {nombre} no se encuentra actualmente en la PokeApi. Error de red: {e}")
         except KeyError as e:
