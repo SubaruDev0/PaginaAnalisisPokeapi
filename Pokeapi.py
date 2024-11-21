@@ -99,7 +99,7 @@ def obtener_pokemon():
             "honedge", "doublade", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay",
             "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk",
             "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo",
-            "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "bergmite", "avalugg", "noibat", "noivern",
+            "goodra", "klefki", "phantump", "trevenant", "bergmite", "avalugg", "noibat", "noivern",
             "xerneas", "yveltal", "diancie", "hoopa", "volcanion",
             #Septima generacion
             "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina", "pikipek",
